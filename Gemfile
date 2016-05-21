@@ -30,6 +30,9 @@ gem 'font-awesome-rails'
 # Geocoder -> gets latitude and lotitude of a restaurant
 gem 'geocoder'
 
+# Google maps for rails gem -> displaying restaurants on a map
+gem 'gmaps4rails'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
