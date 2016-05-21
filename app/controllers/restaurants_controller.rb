@@ -7,11 +7,32 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.json
   def index
     @restaurants = Restaurant.all
+    @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
+      marker.lat restaurant.latitude
+      marker.lng restaurant.longitude
+      # marker.infowindow "<h4><img src=\"#{restaurant.logo.thumb.url}\"> #{restaurant.name}</h4><p><b>Address:</b> #{restaurant.address}</p><p><b>Phone:</b> #{restaurant.phone_number}</p><p><b>Monday:</b> #{restaurant.monday_hours}</p><p><b>Tuesday:</b> #{restaurant.tuesday_hours}</p><p><b>Wednesday:</b> #{restaurant.wednesday_hours}</p><p><b>Thursday:</b> #{restaurant.thursday_hours}</p><p><b>Friday:</b> #{restaurant.friday_hours}</p><p><b>Saturday:</b> #{restaurant.saturday_hours}</p><p><b>Sunday:</b> #{restaurant.sunday_hours}</p>"
+      marker.infowindow "<h4>#{restaurant.name}</h4><p><b>Address:</b> #{restaurant.address}</p><p><b>Phone:</b> #{restaurant.phone}</p>"
+      marker.json({
+        name:    restaurant.name,
+        address: restaurant.address
+      })
+    end
   end
 
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
+    @restaurants = Restaurant.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
+      marker.lat restaurant.latitude
+      marker.lng restaurant.longitude
+      # marker.infowindow "<h4><img src=\"#{restaurant.logo.thumb.url}\"> #{restaurant.name}</h4><p><b>Address:</b> #{restaurant.address}</p><p><b>Phone:</b> #{restaurant.phone_number}</p><p><b>Monday:</b> #{restaurant.monday_hours}</p><p><b>Tuesday:</b> #{restaurant.tuesday_hours}</p><p><b>Wednesday:</b> #{restaurant.wednesday_hours}</p><p><b>Thursday:</b> #{restaurant.thursday_hours}</p><p><b>Friday:</b> #{restaurant.friday_hours}</p><p><b>Saturday:</b> #{restaurant.saturday_hours}</p><p><b>Sunday:</b> #{restaurant.sunday_hours}</p>"
+      marker.infowindow "<h4>#{restaurant.name}</h4><p><b>Address:</b> #{restaurant.address}</p><p><b>Phone:</b> #{restaurant.phone}</p>"
+      marker.json({
+        name:    restaurant.name,
+        address: restaurant.address
+      })
+    end
   end
 
   # GET /restaurants/new
@@ -71,6 +92,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :about, :phone, :email, :website, :monday_hours, :tuesday_hours, :wednesday_hours, :thursday_hours, :friday_hours, :saturday_hours, :sunday_hours, :facebook, :twitter, :instagram)
+      params.require(:restaurant).permit(:name, :address, :about, :phone, :email, :website, :monday_hours, :tuesday_hours, :wednesday_hours, :thursday_hours, :friday_hours, :saturday_hours, :sunday_hours, :facebook, :twitter, :instagram, :latitude, :longitude)
     end
 end
