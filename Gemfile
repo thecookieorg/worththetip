@@ -21,6 +21,9 @@ gem 'simple_form'
 # User authentication
 gem 'devise'
 
+# User authorization
+gem 'cancancan', '~> 1.10'
+
 # Font-awesome svg icons
 gem 'font-awesome-rails'
 
