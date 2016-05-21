@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Restaurants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>About</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Website</th>
+      <th>Monday hours</th>
+      <th>Tuesday hours</th>
+      <th>Wednesday hours</th>
+      <th>Thursday hours</th>
+      <th>Friday hours</th>
+      <th>Saturday hours</th>
+      <th>Sunday hours</th>
+      <th>Facebook</th>
+      <th>Twitter</th>
+      <th>Instagram</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.address %></td>
+        <td><%= restaurant.about %></td>
+        <td><%= restaurant.phone %></td>
+        <td><%= restaurant.email %></td>
+        <td><%= restaurant.website %></td>
+        <td><%= restaurant.monday_hours %></td>
+        <td><%= restaurant.tuesday_hours %></td>
+        <td><%= restaurant.wednesday_hours %></td>
+        <td><%= restaurant.thursday_hours %></td>
+        <td><%= restaurant.friday_hours %></td>
+        <td><%= restaurant.saturday_hours %></td>
+        <td><%= restaurant.sunday_hours %></td>
+        <td><%= restaurant.facebook %></td>
+        <td><%= restaurant.twitter %></td>
+        <td><%= restaurant.instagram %></td>
+        <td><%= link_to 'Show', restaurant %></td>
+        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restaurant', new_restaurant_path %>

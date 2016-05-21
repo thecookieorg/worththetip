@@ -1,0 +1,26 @@
+<%= simple_form_for(@restaurant) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :about %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :website %>
+    <%= f.input :monday_hours %>
+    <%= f.input :tuesday_hours %>
+    <%= f.input :wednesday_hours %>
+    <%= f.input :thursday_hours %>
+    <%= f.input :friday_hours %>
+    <%= f.input :saturday_hours %>
+    <%= f.input :sunday_hours %>
+    <%= f.input :facebook %>
+    <%= f.input :twitter %>
+    <%= f.input :instagram %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

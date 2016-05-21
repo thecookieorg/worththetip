@@ -1,0 +1,1 @@
+json.extract! @restaurant, :id, :name, :address, :about, :phone, :email, :website, :monday_hours, :tuesday_hours, :wednesday_hours, :thursday_hours, :friday_hours, :saturday_hours, :sunday_hours, :facebook, :twitter, :instagram, :created_at, :updated_at
