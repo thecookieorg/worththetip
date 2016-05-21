@@ -17,22 +17,18 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Simple_form -> for nicer forms
 gem 'simple_form'
-
 # User authentication
 gem 'devise'
-
 # User authorization
 gem 'cancancan', '~> 1.10'
-
 # Font-awesome svg icons
 gem 'font-awesome-rails'
-
 # Geocoder -> gets latitude and lotitude of a restaurant
 gem 'geocoder'
-
 # Google maps for rails gem -> displaying restaurants on a map
 gem 'gmaps4rails'
-
+# Instead of using IDs of restaurants, I want to use their names
+gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
