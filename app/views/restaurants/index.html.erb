@@ -9,11 +9,22 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <%= link_to 'New Restaurant', new_restaurant_path, class: "btn btn-success" if user_signed_in? && current_user.admin? %>
       <div class="panel panel-default">
         <!-- Google map lives in this custom_style div below -->
         <div id="custom_style" style='width: 100%; height: 300px;'></div>
         <div class="panel-body">
-          Panel content
+          <h3>Find and rate great dishes from places like...</h3>
+          <div class="row">
+            <% @restaurants.each do |restaurant| %>
+              <div class="col-md-3">
+                <h4 style="margin-bottom: -4px;"><%= restaurant.name %> <% if current_user.admin? %> <%= link_to 'Edit', edit_restaurant_path(restaurant) %> | <%= link_to 'Delete', restaurant, method: :delete, data: { confirm: "Are you sure you wish to delete #{restaurant.name} restaurant?" } %> <% end %></h4>
+                <p>instead of restuarant name, I will replace it with a restaurant logo</p>
+                <small><i>Average Star Rating Goes Here</i></small>
+                <p><strong><%= link_to 'Show Details', restaurant %></strong></p>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
 
@@ -22,68 +33,10 @@
 </div><!-- end container -->
 
 
-
-<h1>Listing Restaurants</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>About</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Website</th>
-      <th>Monday hours</th>
-      <th>Tuesday hours</th>
-      <th>Wednesday hours</th>
-      <th>Thursday hours</th>
-      <th>Friday hours</th>
-      <th>Saturday hours</th>
-      <th>Sunday hours</th>
-      <th>Facebook</th>
-      <th>Twitter</th>
-      <th>Instagram</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @restaurants.each do |restaurant| %>
-      <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.about %></td>
-        <td><%= restaurant.phone %></td>
-        <td><%= restaurant.email %></td>
-        <td><%= restaurant.website %></td>
-        <td><%= restaurant.monday_hours %></td>
-        <td><%= restaurant.tuesday_hours %></td>
-        <td><%= restaurant.wednesday_hours %></td>
-        <td><%= restaurant.thursday_hours %></td>
-        <td><%= restaurant.friday_hours %></td>
-        <td><%= restaurant.saturday_hours %></td>
-        <td><%= restaurant.sunday_hours %></td>
-        <td><%= restaurant.facebook %></td>
-        <td><%= restaurant.twitter %></td>
-        <td><%= restaurant.instagram %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Restaurant', new_restaurant_path if user_signed_in? && current_user.admin? %>
-
-
 <script>
 var mapStyle = [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"administrative.country","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"administrative.province","elementType":"labels.icon","stylers":[{"hue":"#ff0000"},{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}];
 handler = Gmaps.build('Google');
-handler.buildMap({ provider: {mapTypeId: google.maps.MapTypeId.SATELLITE, styles: mapStyle}, internal: {id: 'custom_style'}}, function(){
+handler.buildMap({ provider: {mapTypeId: google.maps.MapTypeId.ROADMAP, styles: mapStyle}, internal: {id: 'custom_style'}}, function(){
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();

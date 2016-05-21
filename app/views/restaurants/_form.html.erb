@@ -2,22 +2,27 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <small><i>For address, make sure to add <strong>FULL</strong> address like in example below</i></small><br><br>
     <%= f.input :name %>
-    <%= f.input :address %>
+    <%= f.input :address, placeholder: "For example: 301 Maude Road, Port Moody, V3H5B1, BC" %>
     <%= f.input :about %>
     <%= f.input :phone %>
     <%= f.input :email %>
     <%= f.input :website %>
-    <%= f.input :monday_hours %>
-    <%= f.input :tuesday_hours %>
-    <%= f.input :wednesday_hours %>
-    <%= f.input :thursday_hours %>
-    <%= f.input :friday_hours %>
-    <%= f.input :saturday_hours %>
-    <%= f.input :sunday_hours %>
-    <%= f.input :facebook %>
-    <%= f.input :twitter %>
-    <%= f.input :instagram %>
+    <hr>
+    <small><i>For hours, for example, just paste 9am to 9pm format</i></small><br><br>
+    <%= f.input :monday_hours, placeholder: "For example: 9am to 9pm" %>
+    <%= f.input :tuesday_hours, placeholder: "For example: 9am to 9pm" %>
+    <%= f.input :wednesday_hours, placeholder: "For example: 9am to 9pm" %>
+    <%= f.input :thursday_hours, placeholder: "For example: 9am to 9pm" %>
+    <%= f.input :friday_hours, placeholder: "For example: 9am to 9pm" %>
+    <%= f.input :saturday_hours, placeholder: "For example: 9am to 9pm" %>
+    <%= f.input :sunday_hours, placeholder: "For example: 9am to 9pm" %>
+    <hr>
+    <small><i>For social media, just paste the user name</i></small><br><br>
+    <%= f.input :facebook, placeholder: "For example: worththetip" %>
+    <%= f.input :twitter, placeholder: "For example: worththetip" %>
+    <%= f.input :instagram, placeholder: "For example: worththetip" %>
   </div>
 
   <div class="form-actions">

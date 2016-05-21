@@ -62,21 +62,27 @@
           </div><!-- end row -->
           <hr>
           <div class="row">
-            <div class="col-md-4 text-center">
-              <%= link_to "http://facebook.com/#{@restaurant.facebook}/", target:"_blank" do %>
-                <i class="fa fa-facebook-official facebook-custom-font-size" aria-hidden="true"></i>
-              <% end %>
-            </div>
-            <div class="col-md-4 text-center">
-              <%= link_to "http://instagram.com/#{@restaurant.instagram}/", target:"_blank" do %>
-                <i class="fa fa-instagram instagram-custom-font-size" aria-hidden="true"></i>
-              <% end %>
-            </div>
-            <div class="col-md-4 text-center">
-              <%= link_to "http://twitter.com/#{@restaurant.twitter}/", target:"_blank" do %>
-                <i class="fa fa-twitter-square twitter-custom-font-size" aria-hidden="true"></i>
-              <% end %>
-            </div>
+            <% unless @restaurant.facebook.empty? %>
+              <div class="col-md-4 text-center">
+                <%= link_to "http://facebook.com/#{@restaurant.facebook}/", target:"_blank" do %>
+                  <i class="fa fa-facebook-official facebook-custom-font-size" aria-hidden="true"></i>
+                <% end %>
+              </div>
+            <% end %>
+            <% unless @restaurant.instagram.empty? %>
+              <div class="col-md-4 text-center">
+                  <%= link_to "http://instagram.com/#{@restaurant.instagram}/", target:"_blank" do %>
+                    <i class="fa fa-instagram instagram-custom-font-size" aria-hidden="true"></i>
+                  <% end %>
+              </div>
+            <% end %>
+            <% unless @restaurant.twitter.empty? %>
+              <div class="col-md-4 text-center">
+                  <%= link_to "http://twitter.com/#{@restaurant.twitter}/", target:"_blank" do %>
+                    <i class="fa fa-twitter-square twitter-custom-font-size" aria-hidden="true"></i>
+                  <% end %>
+              </div>
+            <% end %>
           </div>
           </div><!-- end row -->
         </div><!-- end panel-body -->
