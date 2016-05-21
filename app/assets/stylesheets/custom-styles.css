@@ -1,0 +1,15 @@
+.facebook-custom-font-size, .twitter-custom-font-size, .instagram-custom-font-size {
+	font-size: 3em !important;
+}
+
+.facebook-custom-font-size {
+	color: #3b5998;
+}
+
+.instagram-custom-font-size {
+	color: #f77737;
+}
+
+.twitter-custom-font-size {
+	color: #55acee;
+}
