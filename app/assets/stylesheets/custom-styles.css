@@ -1,3 +1,8 @@
+body {
+  /*font-family: 'Raleway', sans-serif !important;*/
+  font-family: 'Open Sans', sans-serif !important;
+}
+
 .facebook-custom-font-size, .twitter-custom-font-size, .instagram-custom-font-size {
 	font-size: 3em !important;
 }
