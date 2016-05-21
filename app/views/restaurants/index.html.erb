@@ -54,4 +54,4 @@
 
 <br>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<%= link_to 'New Restaurant', new_restaurant_path if user_signed_in? && current_user.admin? %>
