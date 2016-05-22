@@ -22,7 +22,8 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
-    @dish = Dish.all
+    #@dish = Dish.all
+    @dishes = @restaurant.dishes
     #@dish = Dish.find(params[:id])
     @hash = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
       marker.lat restaurant.latitude

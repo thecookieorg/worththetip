@@ -18,3 +18,11 @@ body {
 .twitter-custom-font-size {
 	color: #55acee;
 }
+
+.no-padding-in-panel-body {
+	padding: 0px !important;
+}
+
+.padding-in-panel-body {
+	padding: 15px;
+}

@@ -1,19 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @dish.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @dish.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @dish.price %>
-</p>
-
-<%= link_to 'Edit', edit_dish_path(@dish) %> |
-<%= link_to 'Back', dishes_path %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Details for <%= "#{@dish.name}" %></h3>
+			  </div>
+			  <div class="panel-body">
+			    <p>Dish name:</p>
+			    <p><%= @dish.name %></p>
+			    <p>Dish description</p>
+			    <p><%= @dish.description %></p>
+			    <p>Dish price:</p>
+			    <p><%= @dish.price %></p>
+			  </div>
+			  <div class="panel-footer"><%= link_to 'Edit', edit_dish_path(@dish), class: "btn btn-link" %> | <%= link_to 'Back', dishes_path, class: "btn btn-link" %></div>
+			</div>
+		</div><!-- end -->
+	</div><!-- end row -->
+</div><!-- end container -->

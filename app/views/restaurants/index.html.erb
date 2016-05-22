@@ -9,7 +9,6 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <%= link_to 'New Restaurant', new_restaurant_path, class: "btn btn-success" if user_signed_in? && current_user.admin? %>
       <div class="panel panel-default">
         <!-- Google map lives in this custom_style div below -->
         <div id="custom_style" style='width: 100%; height: 400px;'></div>
@@ -20,7 +19,6 @@
               <div class="col-md-3">
                 <h4 style="margin-bottom: -4px;"><%= restaurant.name %> <% if current_user.admin? %> <%= link_to 'Edit', edit_restaurant_path(restaurant) %> | <%= link_to 'Delete', restaurant, method: :delete, data: { confirm: "Are you sure you wish to delete #{restaurant.name} restaurant?" } %> <% end %></h4>
                 <p>instead of restuarant name, I will replace it with a restaurant logo</p>
-                <small><i>Average Star Rating Goes Here</i></small>
                 <p><strong><%= link_to 'Show Details', restaurant %></strong></p>
               </div>
             <% end %>
