@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521215130) do
+ActiveRecord::Schema.define(version: 20160521234242) do
+
+  create_table "dishes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "price"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "restaurant_id"
+  end
+
+  add_index "dishes", ["restaurant_id"], name: "index_dishes_on_restaurant_id"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false

@@ -5,6 +5,9 @@
 <!-- END OF GOOGLA MAPS FOR RAILS -->
 
 
+<% @restaurant.dishes.each do |dish| %>
+                  <li><%= dish.name %></li>
+                <% end %>
 
 <div class="container">
   <div class="row">

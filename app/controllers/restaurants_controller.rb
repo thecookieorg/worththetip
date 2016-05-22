@@ -22,7 +22,8 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
-    
+    @dish = Dish.all
+    #@dish = Dish.find(params[:id])
     @hash = Gmaps4rails.build_markers(@restaurant) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
@@ -89,6 +90,7 @@ class RestaurantsController < ApplicationController
     def set_restaurant
       @restaurant = Restaurant.friendly.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params

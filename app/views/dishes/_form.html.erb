@@ -1,0 +1,18 @@
+<%= simple_form_for(@dish) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    
+  	<%# f.association :restaurant, label_method: :name, value_method: :id, include_blank: false, :input_html => {:maxlength =>50, :style=> 'width: 500px'} %>
+  	<%= f.label "Choose a Restaurant" %>
+    <%= f.collection_select :restaurant_id, Restaurant.all, :id, :name %>
+  	
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
