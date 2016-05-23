@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   resources :dishes
   resources :restaurants
   devise_for :users, :controllers => { registrations: 'registrations' }
+  resources :users, only: [:show]
+  #get ':nickname', to: 'profiles#show', as: :profile
+  #get ':nickname/edit', to: 'profiles#edit', as: :edit_profile
+  #patch ':nickname/edit', to: 'profiles#update', as: :update_profile  
+  #get 'user/:nickname' => 'user#profile'
   root 'pages#index'
 
   scope :users do

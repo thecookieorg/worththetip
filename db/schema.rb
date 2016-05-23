@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522195424) do
+ActiveRecord::Schema.define(version: 20160523023827) do
 
   create_table "dishes", force: :cascade do |t|
     t.string   "name"
@@ -80,9 +80,11 @@ ActiveRecord::Schema.define(version: 20160522195424) do
     t.string   "name"
     t.string   "nickname"
     t.string   "city"
+    t.string   "slug"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
 
 end
