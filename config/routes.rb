@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   #patch ':nickname/edit', to: 'profiles#update', as: :update_profile  
   #get 'user/:nickname' => 'user#profile'
   root 'pages#index'
+  get '/terms' => 'pages#terms'
+  get '/privacy' => 'pages#privacy'
 
   scope :users do
     root :to => 'restaurants#index', :as => :user_root
