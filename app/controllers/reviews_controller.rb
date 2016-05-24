@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
 private
 
 	def review_params  
-	  params.require(:review).permit(:content)
+	  params.require(:review).permit(:content, :overall_experience)
 	end
 
 	def set_dish  

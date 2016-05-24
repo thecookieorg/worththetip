@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524204303) do
+ActiveRecord::Schema.define(version: 20160524205646) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -109,9 +109,10 @@ ActiveRecord::Schema.define(version: 20160524204303) do
     t.integer  "user_id"
     t.integer  "restaurant_id"
     t.text     "content"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "dish_id"
+    t.integer  "overall_experience"
   end
 
   add_index "reviews", ["dish_id"], name: "index_reviews_on_dish_id"
