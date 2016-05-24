@@ -104,10 +104,13 @@
                     <div class="col-md-6">
                       <h4>Rating:</h4>
                       <% if dish.reviews.present? %>
+                      <% $sum = 0 %>
+                      
                         <% dish.reviews.each do |review| %>
-                          <p><%= review.overall_experience %></p>
-                          <p>ADD AVERAGE HERE</p>
+                          <% $sum = $sum + review.overall_experience.to_f %>
+                          <% $avg = $sum / dish.reviews.count %>
                         <% end %>
+                          <p><%= $avg.to_f.round(2) %> / 5</p>
                       <% else %>
                         <p>No ratings yet!</p>
                       <% end %>
