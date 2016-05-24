@@ -84,11 +84,6 @@
       </div><!-- panel panel-default -->
     </div><!-- end col-md-6 -->
     <div class="col-md-6">
-
-
-      
-
-
       <% @dishes.each do |dish| %>
         <div class="panel panel-default">
           <div class="panel-body no-padding-in-panel-body">
@@ -137,10 +132,13 @@
               <% end %>
               <!-- end dishes reviews -->
               <hr>
+      
+      
               <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
                   <div class="form-group">
                     <%= form_for [dish, dish.reviews.new] do |f| %>
+
                       <%= f.text_field :content, class: "form-control", placeholder: 'Review this dish!' %>
                     <% end %>
                   </div><!-- end form-group -->

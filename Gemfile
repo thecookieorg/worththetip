@@ -23,6 +23,8 @@ gem 'simple_form'
 gem 'devise'
 # Add User Avatar through Gravatar
 gem 'gravatarify', '~> 3.0.0'
+# Ratings
+#gem 'ratyrate'
 # User authorization
 gem 'cancancan', '~> 1.10'
 # Font-awesome svg icons

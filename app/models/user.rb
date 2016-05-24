@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
    extend FriendlyId
    friendly_id :nickname, use: [:slugged, :finders] # had to add use: like this, instead of just :slugged as it wasn't working from some strange reason
    has_many :reviews, dependent: :destroy
+   
 end
