@@ -9,6 +9,9 @@ class Ability
       can :manage, :all
     else
       can :read, Restaurant
+      can :read, Review
+      can :create, Review
+      can :update, Review
     end
     #
     # The first argument to `can` is the action you are giving the user

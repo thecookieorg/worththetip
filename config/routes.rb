@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :dishes
+  resources :dishes do
+    resources :reviews
+  end
   resources :restaurants
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users, only: [:show]

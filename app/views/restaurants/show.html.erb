@@ -84,6 +84,11 @@
       </div><!-- panel panel-default -->
     </div><!-- end col-md-6 -->
     <div class="col-md-6">
+
+
+      
+
+
       <% @dishes.each do |dish| %>
         <div class="panel panel-default">
           <div class="panel-body no-padding-in-panel-body">
@@ -101,6 +106,45 @@
                   <hr>
                   <img src="http://edumovlive.com/wp-content/uploads/2015/11/four-stars_0.png" class="img-responsive">
                   <p style="color: blue;"><small>Load Comments (26)</small></p>
+                  
+
+                 <p>
+
+                  
+                    
+                      
+                        
+                        
+                        
+                          
+                          <% if dish.reviews.present? %>
+                            <% dish.reviews.each do |review| %>
+                              <div class="comment">
+                                <div class="user-name">
+                                  <%= review.user.nickname %>
+                                </div>
+                                <div class="comment-content">
+                                  <%= review.content %>
+                                </div>
+                              </div>
+                            <% end %>
+                          <% end %>
+                          <div class="comment-form">
+                            <%= form_for [dish, dish.reviews.new] do |f| %>
+                              <%= f.text_field :content, placeholder: 'Add a review...' %>
+                            <% end %>
+                          </div>
+                        
+                      
+                    
+                  
+
+
+                 </p>
+
+
+
+
                 </div>
               </div><!-- end row -->
             </div><!-- end padding-in-panel-body -->
