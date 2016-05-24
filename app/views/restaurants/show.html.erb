@@ -116,12 +116,12 @@
               </div><!-- end row -->
               <hr>
               <!-- start dishes reviews -->
-              <% if dish.reviews %>
+              <% if dish.reviews.present? %>
                 <% dish.reviews.each do |review| %>
                 <div class="row">
                   <div class="col-md-4">
                     <%= gravatar_tag review.user.email, :size => 40 %>
-                    <h5><%= review.user.nickname %></h5>
+                    <h5><%= review.user.user_name %></h5>
                   </div><!-- end col-md-4 -->
                   <div class="col-md-8">
                     <small>***** <%= review.created_at.strftime("%m/%d/%Y") %></small>
@@ -129,6 +129,10 @@
                   </div><!-- end col-md-8 -->
                 </div><!-- end row -->
                 <% end %>
+              <% else %>
+                <div class="text-center">
+                  <small>This dish hasn't been reviewed yet! What are you waiting for?</small>
+                </div>
               <% end %>
               <!-- end dishes reviews -->
               <hr>
