@@ -97,55 +97,45 @@
               <div class="row">
                 <div class="col-md-12 text-center">
                   <h2><%= dish.name %></h2>
-                  <p>About this dish:<br><%= dish.description %></p>
-                  <p>Price:<br>$<%= dish.price %></p>
-                </div><!-- col-md-12 -->
+                </div><!-- end col-md-12 text-center -->
               </div><!-- end row -->
               <div class="row">
+                <div class="col-md-4">
+                  <h4>About this dish:</h4>
+                  <p><%= dish.description %></p>
+                </div><!-- col-md-4 -->
+                <div class="col-md-4">
+                  <h4>Price:</h4>
+                  <p>$<%= dish.price %></p>
+                </div><!-- col-md-4 -->
+                <div class="col-md-4">
+                  <h4>Average Rating:</h4>
+                  <p>******</p>
+                </div><!-- col-md-4 -->
+              </div><!-- end row -->
+              <div class="row">
+                  <% if dish.reviews %>
+                    <% dish.reviews.each do |review| %>
+                      <hr>  
+                      <div class="col-md-4">
+                        <h5><%= review.user.nickname %></h5>
+                      </div>
+                      <div class="col-md-8">
+                        <small>***** <%= review.created_at.strftime("%m/%d/%Y") %></small>
+                        <p><%= review.content %></p>
+                      </div>
+                    <% end %>
+                  <% end %>
+              </div><!-- end row -->
+              <hr>
+              <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                  <hr>
-                  <img src="http://edumovlive.com/wp-content/uploads/2015/11/four-stars_0.png" class="img-responsive">
-                  <p style="color: blue;"><small>Load Comments (26)</small></p>
-                  
-
-                 <p>
-
-                  
-                    
-                      
-                        
-                        
-                        
-                          
-                          <% if dish.reviews.present? %>
-                            <% dish.reviews.each do |review| %>
-                              <div class="comment">
-                                <div class="user-name">
-                                  <%= review.user.nickname %>
-                                </div>
-                                <div class="comment-content">
-                                  <%= review.content %>
-                                </div>
-                              </div>
-                            <% end %>
-                          <% end %>
-                          <div class="comment-form">
-                            <%= form_for [dish, dish.reviews.new] do |f| %>
-                              <%= f.text_field :content, placeholder: 'Add a review...' %>
-                            <% end %>
-                          </div>
-                        
-                      
-                    
-                  
-
-
-                 </p>
-
-
-
-
-                </div>
+                  <div class="form-group">
+                    <%= form_for [dish, dish.reviews.new] do |f| %>
+                      <%= f.text_field :content, class: "form-control", placeholder: 'Review this dish!' %>
+                    <% end %>
+                  </div><!-- end form-group -->
+                </div><!-- end col-md-6 col-md-offset-3 text-center -->
               </div><!-- end row -->
             </div><!-- end padding-in-panel-body -->
           </div><!-- end panel-body no-padding-in-panel-body -->
