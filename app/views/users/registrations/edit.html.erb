@@ -8,6 +8,7 @@
             </div>
             <div class="panel-body">
               <div class="form-inputs">
+               <%= gravatar_tag @user.email, :size => 80 %>
                <%= f.input :name, required: true, autofocus: true %>
                <%= f.input :nickname, required: true %>
                <%= f.input :city, required: true %>

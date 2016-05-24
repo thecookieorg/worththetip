@@ -21,6 +21,8 @@ gem 'google-webfonts-rails', '~> 0.0.4'
 gem 'simple_form'
 # User authentication
 gem 'devise'
+# Add User Avatar through Gravatar
+gem 'gravatarify', '~> 3.0.0'
 # User authorization
 gem 'cancancan', '~> 1.10'
 # Font-awesome svg icons
