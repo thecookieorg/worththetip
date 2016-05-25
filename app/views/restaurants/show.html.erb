@@ -87,7 +87,7 @@
       <% @dishes.each do |dish| %>
         <div class="panel panel-default">
           <div class="panel-body no-padding-in-panel-body">
-            <img src="http://lorempixel.com/image_output/food-q-c-1000-500-3.jpg" class="img-responsive" >
+           <!-- <img src="http://lorempixel.com/image_output/food-q-c-1000-500-3.jpg" class="img-responsive" >-->
             <div class="padding-in-panel-body">
               <div class="row">
                 <div class="col-md-12 text-center">
@@ -104,13 +104,14 @@
                     <div class="col-md-6">
                       <h4>Rating:</h4>
                       <% if dish.reviews.present? %>
+                      <!-- calculating average -->
                       <% $sum = 0 %>
-                      
                         <% dish.reviews.each do |review| %>
                           <% $sum = $sum + review.overall_experience.to_f %>
                           <% $avg = $sum / dish.reviews.count %>
                         <% end %>
                           <p><%= $avg.to_f.round(2) %> / 5</p>
+                        <!-- calculating average end -->
                       <% else %>
                         <p>No ratings yet!</p>
                       <% end %>

@@ -25,19 +25,43 @@
 		</div><!-- end col-md-6 col-md-offset-3 -->
 	</div><!-- end row -->
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3 text-center">
+		<div class="col-md-6 text-center">
+			<div class="panel panel-default">
+			  <!--<div class="panel-heading">Dish Reviews</div>-->
+			  <div class="panel-body">
+			  		<h3>TOTAL DISH REVIEWS: <%= @user.reviews.count %></h3>
+			  		<h3>TOTAL POINTS EARNED: <%= @user.reviews.count %></h3>
+			  </div>
+			</div>
+		</div><!-- end col-md-6 col-md-offset-3 -->
+		<div class="col-md-6 text-center">
 			<div class="panel panel-default">
 			  <div class="panel-heading">Dish Reviews</div>
 			  <div class="panel-body">
-			  	
-			  		
-
 			  		<% @user.reviews.each do |review| %>
-			  			<small>***** <%= review.created_at.strftime("%m/%d/%Y") %></small>
+			  			<p><% if review.overall_experience == 5 %>
+                          <% 5.times do %>
+                            <%= image_tag 'star-on.png' %>
+                          <% end %>
+                        <% elsif review.overall_experience == 4 %>
+                          <% 4.times do %>
+                            <%= image_tag 'star-on.png' %>
+                          <% end %>
+                        <% elsif review.overall_experience == 3 %>
+                          <% 3.times do %>
+                            <%= image_tag 'star-on.png' %>
+                          <% end %>
+                        <% elsif review.overall_experience == 2 %>
+                          <% 2.times do %>
+                            <%= image_tag 'star-on.png' %>
+                          <% end %>
+                        <% else %>
+                            <%= image_tag 'star-on.png' %>
+                        <% end %> <%= review.created_at.strftime("%m/%d/%Y") %>
+                      </p>
 			  			<p><%= review.content %></p>
 			  			<hr>
 			  		<% end %>
-			  		<h3>TOTAL DISH REVIEWS: <%= @user.reviews.count %></h3>
 			  </div>
 			</div>
 		</div><!-- end col-md-6 col-md-offset-3 -->
