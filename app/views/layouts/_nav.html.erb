@@ -9,9 +9,13 @@
         <span class="icon-bar"></span>
       </button>
       <% if user_signed_in? %>
-        <%= link_to "Worth the Tip", restaurants_path, class: "navbar-brand" %>
+        <%= link_to restaurants_path do %>
+          <%= image_tag "LOGO.png", class: "navbar-brand img-responsive" %>
+        <% end %>
       <% else %>
-        <%= link_to "Worth the Tip", root_path, class: "navbar-brand" %>
+        <%= link_to root_path do %>
+          <%= image_tag "LOGO.png", class: "navbar-brand img-responsive" %>
+        <% end %>
       <% end %>
 
     </div>

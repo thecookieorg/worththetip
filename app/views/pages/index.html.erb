@@ -1,26 +1,67 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Rate Dishes</h1>
-        <p>Find whatever you're craving, see what's good at any restaurant and learn what friends and experts love wherever you go.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-      </div>
-    </div>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Rate Dishes</h1>
+    <p>See what's good at any restaurant and learn what friends and experts love wherever you go.</p>
+    <p><%= link_to 'Get Started >>', new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div><!-- end container -->
+</div><!-- end jumbotron -->
 
-    <div class="container">
-      <!-- Example row of columns -->
+<div class="container">
+  <div class="row" style="margin-bottom: 50px;">
+    <div class="col-md-4">
+      <h2>1. Find a Dish</h2>
+      <p>Search for a dish you are about to order.</p>
+    </div><!-- end col-md-4 -->
+    <div class="col-md-4">
+      <h2>2. Read Dish Reviews</h2>
+      <p>Read reviews about that dish, and find out other peoples experiences.</p>
+   </div><!-- end col-md-4 -->
+    <div class="col-md-4">
+      <h2>3. Post a Review</h2>
+      <p>Rate the dish and share your experience with others.</p>
+    </div><!-- end col-md-4 -->
+  </div><!-- end row -->
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Find out is the food good before you order!</h2>
+      <p>We are currently in Beta and operating in Vancouver (BC) only!</p>
+      <hr>
+    </div><!-- end col-md-12 -->
+    
+  </div><!-- end row -->
+
+  <div class="row" style="margin-bottom: 50px;">
+    <div class="col-md-3">
+      <%= image_tag "darbys.jpg", class: "img-responsive" %>
+    </div><!-- end col-md-3 -->
+    <div class="col-md-3">
+      <%= image_tag "big-smoke.jpg", class: "img-responsive" %>
+    </div><!-- end col-md-3 -->
+    <div class="col-md-3">
+      <%= image_tag "lataqueria.jpg", class: "img-responsive" %>
+    </div><!-- end col-md-3 -->
+    <div class="col-md-3">
+      <%= image_tag "rangoli.jpg", class: "img-responsive" %>
+    </div><!-- end col-md-3 -->
+  </div><!-- end row -->
+
+  <div class="row text-center" style="margin-bottom: 50px;">
+    <h2>Coming Soon on Mobile!</h2>
+    <hr>
+    <div class="col-md-6 col-md-offset-3">
       <div class="row">
-        <div class="col-md-4">
-          <h2>1. Find a Restaurant &amp; Dish</h2>
-          <p>We are currently in Beta, working only with Vancouver (BC) based restaurants.</p>
-        </div>
-        <div class="col-md-4">
-          <h2>2. Read Dish Reviews</h2>
-          <p>After you register, search for a restaurant and read their dish reviews BEFORE you order the food!</p>
-       </div>
-        <div class="col-md-4">
-          <h2>3. Post a Review</h2>
-          <p>After you're done with your food, you can rate the food experience you had and share it with others!</p>
-        </div>
-      </div>
-  </div>
+        <div class="col-md-6">
+      <%= image_tag "get-it-on-google-play.jpg", class: "img-responsive" %>
+      </div><!-- end col-md-3 -->
+      <div class="col-md-6">
+        <%= image_tag "app-store.png", class: "img-responsive" %>
+      </div><!-- end col-md-3 -->
+      </div><!-- end row -->
+    </div><!-- end col-md-6 col-md-offset-3 -->
+    
+  </div><!-- end row -->
+
+
+</div><!-- end container -->
