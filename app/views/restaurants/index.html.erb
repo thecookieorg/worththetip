@@ -17,9 +17,7 @@
           <div class="row">
             <% @restaurants.each do |restaurant| %>
               <div class="col-md-3">
-                <h4 style="margin-bottom: -4px;"><%= restaurant.name %> <% if current_user.admin? %> <%= link_to 'Edit', edit_restaurant_path(restaurant) %> | <%= link_to 'Delete', restaurant, method: :delete, data: { confirm: "Are you sure you wish to delete #{restaurant.name} restaurant?" } %> <% end %></h4>
-                <p>instead of restuarant name, I will replace it with a restaurant logo</p>
-                <p><strong><%= link_to 'Show Details', restaurant %></strong></p>
+                <h4><%= link_to restaurant.name, restaurant %> <% if current_user.admin? %> <%= link_to 'Edit', edit_restaurant_path(restaurant) %> | <%= link_to 'Delete', restaurant, method: :delete, data: { confirm: "Are you sure you wish to delete #{restaurant.name} restaurant?" } %> <% end %></h4>
               </div>
             <% end %>
           </div>

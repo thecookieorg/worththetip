@@ -6,7 +6,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="panel panel-default">
         <!-- Google map lives in this custom_style div below -->
         <div id="custom_style" style='width: 100%; height: 300px;'></div>
@@ -83,7 +83,10 @@
         </div><!-- end panel-body -->
       </div><!-- panel panel-default -->
     </div><!-- end col-md-6 -->
-    <div class="col-md-6">
+  </div><!-- end row -->
+
+  <div class="row">
+    <div class="col-md-12">
       <% @dishes.each do |dish| %>
         <div class="panel panel-default">
           <div class="panel-body no-padding-in-panel-body">
@@ -128,45 +131,71 @@
               <hr>
               <!-- start dishes reviews -->
               <% if dish.reviews.present? %>
-                <% dish.reviews.each do |review| %>
-                <div class="row">
-                  <div class="col-md-4">
-                    <%= gravatar_tag review.user.email, :size => 40 %>
-                    <h5><%= review.user.user_name %></h5>
-                  </div><!-- end col-md-4 -->
-                  <div class="col-md-8">
-                    
-                    <p><% if review.overall_experience == 5 %>
-                          <% 5.times do %>
-                            <%= image_tag 'star-on.png' %>
-                          <% end %>
-                        <% elsif review.overall_experience == 4 %>
-                          <% 4.times do %>
-                            <%= image_tag 'star-on.png' %>
-                          <% end %>
-                        <% elsif review.overall_experience == 3 %>
-                          <% 3.times do %>
-                            <%= image_tag 'star-on.png' %>
-                          <% end %>
-                        <% elsif review.overall_experience == 2 %>
-                          <% 2.times do %>
-                            <%= image_tag 'star-on.png' %>
-                          <% end %>
-                        <% else %>
-                            <%= image_tag 'star-on.png' %>
-                        <% end %> <%= review.created_at.strftime("%m/%d/%Y") %>
-                      </p>
-                    <p><%= review.content %></p>
-                  </div><!-- end col-md-8 -->
-                </div><!-- end row -->
-                <% end %>
+                <!-- Button trigger modal -->
+                <div class="text-center" style="margin-bottom: 50px;">
+                  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target='#<%= "#{dish.id}" %>'>
+                    Show Reviews for <%= "#{dish.name}" %>
+                  </button>
+                  <hr>
+                </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="<%= "#{dish.id}" %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel"><%= "#{dish.name} Reviews" %></h4>
+                        </div>
+                        <div class="modal-body">
+                          <% dish.reviews.each do |review| %>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <%= gravatar_tag review.user.email, size: 40 %>
+                                <h5><%= review.user.user_name %></h5>
+                              </div><!-- end col-md-4 -->
+                              <div class="col-md-8">
+                                <p><% if review.overall_experience == 5 %>
+                                      <% 5.times do %>
+                                        <%= image_tag 'star-on.png' %>
+                                      <% end %>
+                                    <% elsif review.overall_experience == 4 %>
+                                      <% 4.times do %>
+                                        <%= image_tag 'star-on.png' %>
+                                      <% end %>
+                                    <% elsif review.overall_experience == 3 %>
+                                      <% 3.times do %>
+                                        <%= image_tag 'star-on.png' %>
+                                      <% end %>
+                                    <% elsif review.overall_experience == 2 %>
+                                      <% 2.times do %>
+                                        <%= image_tag 'star-on.png' %>
+                                      <% end %>
+                                    <% else %>
+                                        <%= image_tag 'star-on.png' %>
+                                    <% end %> <%= review.created_at.strftime("%m/%d/%Y") %>
+                                  </p>
+                                <p><%= review.content %></p>
+                              </div><!-- end col-md-8 -->
+                            </div><!-- end row -->
+                            <hr>
+                            <% end %>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                
               <% else %>
                 <div class="text-center">
                   <small>This dish hasn't been reviewed yet! What are you waiting for?</small>
                 </div>
               <% end %>
               <!-- end dishes reviews -->
-              <hr>
       
       
               <div class="row">
