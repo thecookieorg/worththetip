@@ -7,4 +7,8 @@ class Restaurant < ActiveRecord::Base
 
 	geocoded_by :address   # can also be an IP address
 	after_validation :geocode          # auto-fetch coordinates
+
+	def self.search(search)
+	  where("name LIKE ?", "%#{search}%") 
+	end
 end

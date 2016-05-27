@@ -6,9 +6,25 @@
 
 
 
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <!-- if search is empty -->
+        <% if @restaurants.blank? %>
+          <div class="row" style="margin-bottom: 50px;">
+            <div class="col-md-6">
+              <%= image_tag "ramsay.jpg", class: "img-responsive" %>
+            </div><!-- end col-md-6 -->
+
+            <div class="col-md-6">
+              <h1><strong>Oh snap!</strong> Are you sure that <strong><%= params[:search] %></strong> exists?!</h1>
+            </div>
+
+          </div><!-- end row -->
+          
+        <% end %>
+
       <div class="panel panel-default">
         <!-- Google map lives in this custom_style div below -->
         <div id="custom_style" style='width: 100%; height: 400px;'></div>

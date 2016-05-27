@@ -7,6 +7,11 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.json
   def index
     @restaurants = Restaurant.all
+    if params[:search]
+      @restaurants = Restaurant.search(params[:search]).order("created_at DESC")
+    else
+      @restaurants = Restaurant.all.order("created_at DESC")
+    end
     @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude

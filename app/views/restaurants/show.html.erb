@@ -114,11 +114,11 @@
               <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                   <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                       <h4>Price:</h4>
                       <p>$<%= dish.price %></p>
                     </div><!-- end col-md-4 -->
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                       <h4>About this dish:</h4>
                       <p><%= dish.description %></p>
                     </div><!-- end col-md-4 -->
@@ -196,14 +196,16 @@
                 </div>
               <% end %>
               <!-- end dishes reviews -->
+              
+              <hr>
       
-      
-              <div class="row">
+              <div class="row" style="margin-top: 50px;">
                 <div class="col-md-6 col-md-offset-3 text-center">
                   <div class="form-group">
+                    <small>Pick your overall experience below:</small><br>
                     <%= form_for [dish, dish.reviews.new] do |f| %>
-                      <%= f.select(:overall_experience, options_for_select([['Poor', 1], ['Not Impressed', 2], ['Meh...', 3], ['Good', 4], ['F*cking AWESOME!', 5]]), placeholder: 'Review this dish!', class: "form-control") %><br><br>
-                      <%= f.text_field :content, class: "form-control", placeholder: 'Review this dish!' %>
+                      <%= f.select(:overall_experience, options_for_select([['Poor', 1], ['Not Impressed', 2], ['Meh...', 3], ['Good', 4], ['F*cking AWESOME!', 5]])) %><br><br>
+                      <%= f.text_field :content, class: "form-control", placeholder: 'Review this dish and press Enter on your keyboard' %>
                     <% end %>
                   </div><!-- end form-group -->
                 </div><!-- end col-md-6 col-md-offset-3 text-center -->
