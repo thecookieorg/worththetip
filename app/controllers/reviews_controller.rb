@@ -31,4 +31,8 @@ private
 	def set_dish  
 	  @dish = Dish.find(params[:dish_id])
 	end  
+
+	#def calculate_average(overall_experience)
+	#	overall_experience.inject(0.0, :+)/overall_experience.length
+	#end
 end

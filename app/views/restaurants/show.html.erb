@@ -95,7 +95,7 @@
               <div class="row">
                 <div class="col-md-12 text-center">
                   <h2>
-                    <%= dish.name %> 
+                    <%= dish.name.upcase %> 
                   </h2>
                     <% if dish.reviews.present? %>
                       <!-- calculating average -->
@@ -104,7 +104,7 @@
                           <% $sum = $sum + review.overall_experience.to_f %>
                           <% $avg = $sum / dish.reviews.count %>
                         <% end %>
-                          <p>Average Rating: <%= $avg.to_f.round(2) %> / 5</p>
+                          <p>Average Rating: <%# @calculating_average %><%= $avg.to_f.round(2) %> / 5</p>
                         <!-- calculating average end -->
                     <% else %>
                       <p>No ratings yet!</p>
